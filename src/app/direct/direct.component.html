@@ -1,0 +1,46 @@
+<ul>
+  <li *ngFor="let ani of animalList"> <!-- ngFor는 index를 자동으로 가지고 있다-->
+    name : {{ani.name}}, age : {{ani.age}}
+  </li> <!-- 앵귤러2부터는 *가 붙는다-->
+</ul>
+
+<ul>
+  <li *ngFor="let ani of animalList;index as idx"> <!--이런식으로 적어줘도 된다.-->
+    {{idx}}.name : {{ani.name}}, age : {{ani.age}}
+  </li> <!-- 앵귤러2부터는 *가 붙는다-->
+</ul>
+
+<ul>
+  <ng-container *ngFor="let ani of animalList;even as isEven"> <!-- ng-container를 쓰면 ngFor,ngIf 같이 못쓰는 문제를 해결할수가 있다.-->
+    <li *ngIf="isEven">name : {{ani.name}}, age : {{ani.age}}</li>
+  </ng-container>
+</ul>
+
+
+<ul>
+  <ng-container *ngFor="let ani of animalList;odd as isOdd">
+    <li *ngIf="isOdd">name : {{ani.name}}, age : {{ani.age}}</li>
+  </ng-container>
+</ul>
+
+
+<ul>
+  <ng-container *ngFor="let ani of animalList;first as isFirst">
+    <li *ngIf="isFirst">name : {{ani.name}}, age : {{ani.age}}</li>
+  </ng-container>
+</ul>
+
+
+
+<ul>
+  <ng-container *ngFor="let ani of animalList;last as isLast">
+    <li *ngIf="isLast">name : {{ani.name}}, age : {{ani.age}}</li>
+  </ng-container>
+</ul>
+
+
+<ul>
+  <ng-container *ngFor="let ani of animalList">
+    <li *ngIf="ani.name=='소'||ani.age=='18'">name : {{ani.name}}, age : {{ani.age}}</li>
+  </ng-container>
+</ul>

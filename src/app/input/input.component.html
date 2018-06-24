@@ -1,0 +1,51 @@
+
+<button (click)="clickBtn()">클릭하세요</button> <!-- (click)이벤트이며 옆에 있는 clickBtn을 자동으로 찾아간다.-->
+<br>
+<button (click)="clickBtnDown()">감소</button>
+<div>
+  클릭 횟수 : {{clickcnt}}
+</div>
+<!--<input (keyup)="upkey($event)">
+<div>
+  1.쓴글 : {{inputstr}}
+</div>-->
+
+
+
+<input #test (keyup)="upkey2(test.value)">
+<div>
+  2.쓴글 : {{inputstr2}}
+</div>
+
+<input type="text" #num1 (keyup)='0'>
+<select #op>
+  <option value="+">+</option>
+  <option value="-">-</option>
+  <option value="*">*</option>
+  <option value="/">/</option>
+</select>
+<input type="text" #num2 (keyup)='0'>
+<button (click)="sum(num1.value,num2.value,op.value)">계산</button>
+결과값 : {{result==undefinded?0:result}}
+<!--결과값 : {{(num1.value==''||num2.value=='')?0:parseInt(num1.value)+parseInt(num2.value)}}-->
+<div [innerHTML]="result"></div>
+
+<!--<select name="" id="" (change)="checkValue($event)">
+  <option value="test1">test1</option>
+  <option value="test2">test2</option>
+  <option value="test3">test3</option>
+</select>-->
+
+
+<select name="" id="" #sel (change)='0'>
+  <option value="1">test1</option>
+  <option value="2">test2</option>
+  <option value="3">test3</option>
+</select>
+
+<div>test1</div>
+<div *ngIf="sel.value=='3' || sel.value=='2' ">test2</div>
+<div *ngIf="sel.value=='3'">test3</div>
+<!--<div *ngIf="parseInt(sel.value)>='3' || parseInt(sel.value)>='2' ">test2</div>
+<div *ngIf="parseInt(sel.value)>='3'">test3</div>-->
+

@@ -1,0 +1,27 @@
+<!--The content below is only a placeholder and can be replaced.-->
+<app-header [title]="headerTitle"></app-header> <!--부모에서 자식한테 값을 전달하고자 한다. a=b 에서 b는 부모.ts에 변수이름과 같아야 하고 a는 자식.ts에 변수이름과 같아야 한다.-->
+<!--<app-event [subStr]="title"></app-event>-->
+<!--<app-direct></app-direct>-> <!-- app-xxx 라고 태그를 만들면 컴포넌트를 불러올수가 있다.-->
+<!--<app-event></app-event>-->
+
+<div>
+  <button mat-button [matMenuTriggerFor]="menu">Menu</button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item routerLink="/home">Home</button>
+    <button mat-menu-item routerLink="/direct">Home</button>
+    <button mat-menu-item routerLink="/event">Event</button>
+    <button mat-menu-item routerLink="/input">Input</button>
+    <button mat-menu-item routerLink="/user">User</button>
+    <button mat-menu-item routerLink="/error1">error</button>
+  </mat-menu>
+</div>
+
+<!--
+  input 
+  user
+
+-->
+<div class="container">
+  <router-outlet></router-outlet>
+</div>
+<app-footer [footerstr]="footContent"></app-footer> 
