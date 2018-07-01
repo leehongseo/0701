@@ -15,6 +15,10 @@ import { HomeComponent } from './home/home.component';
 import { InputComponent } from './input/input.component';
 import { UserComponent } from './user/user.component';
 import {RouterModule} from '@angular/router';
+import {HttpClient, HttpClientModule} from '@angular/common/http'; 
+import { JoinComponent } from './join/join.component';
+import { PromiseComponent } from './promise/promise.component';;
+import { CompanyComponent } from './company/company.component' 
 
 
 
@@ -28,9 +32,13 @@ import {RouterModule} from '@angular/router';
     ErrorComponent,
     HomeComponent,
     InputComponent,
-    UserComponent
+    UserComponent,
+    JoinComponent,
+    CompanyComponent,
+    PromiseComponent   
   ],
   imports: [
+    HttpClientModule,
     BrowserModule,
     BrowserAnimationsModule,
     MatToolbarModule,
@@ -43,11 +51,15 @@ import {RouterModule} from '@angular/router';
       {path:'home',component:HomeComponent},
       {path:'event',component:EventComponent},
       {path:'input',component:InputComponent},
-      {path:'user',component:UserComponent},
-      {path:'**',component:ErrorComponent},      
+      {path:'user',component:UserComponent}, 
+      {path:'header',component:HeaderComponent},
+      {path:'join',component:JoinComponent},
+      {path:'promise',component:PromiseComponent},
+      {path:'company',component:CompanyComponent},
+      {path:'**',component:ErrorComponent}
     ])
   ],
-  providers: [],
+  providers: [HttpClient],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

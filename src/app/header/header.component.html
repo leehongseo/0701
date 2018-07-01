@@ -1,3 +1,9 @@
 <header>
   <mat-toolbar color='primary'>{{title}}</mat-toolbar>
 </header>
+<button (click)="viewExList()">유저리스트</button>
+<ul>
+  <ng-container *ngFor="let ex of exList">
+      <li>이름 : {{ex.name}}, 나이 : {{ex.age}}</li>
+  </ng-container>
+</ul>

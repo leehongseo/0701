@@ -1,0 +1,10 @@
+
+
+<button (click)="getCompanies()">회사리스트조회</button>
+<ul>
+  <li *ngFor="let comp of companyList">
+    회사명 : {{comp.name}}
+    창립년도 : {{comp.year}}
+    주소 : {{comp.address}}
+  </li>
+</ul>

@@ -1,0 +1,38 @@
+<table class="table" [hidden]="!loginView">
+  <tr>
+    <th>아이디</th>
+    <th><input [(ngModel)]="user.id"></th>
+  </tr>
+  <tr>
+    <th>패스워드</th>
+    <th><input [(ngModel)]="user.pwd" type="password"></th>
+  </tr>
+  <tr>
+    <th>이름</th>
+    <th><input [(ngModel)]="user.name"></th>
+  </tr>
+  <tr>
+    <th>나이</th>
+    <th><input [(ngModel)]="user.age"></th>
+  </tr>
+  <tr>
+    <th>주소</th>
+    <th><input [(ngModel)]="user.address"></th>
+  </tr>
+  <tr>
+    <td colspan="2"><button (click)="join()">회원가입</button></td>
+  </tr>
+</table>
+<div class="container" [hidden]="loginView || !infoView">
+  아이디 : <input [(ngModel)]="user.id">
+  비밀번호 : <input [(ngModel)]="user.pwd" type="password">
+  <button (click)="login()">로그인</button>
+</div>
+<div class="container" [hidden]="infoView">
+  아이디 : {{userInfo.id}}<br>
+  패스워드 : {{userInfo.pwd}} <br>
+  이름 : {{userInfo.name}}<br>
+  나이 : {{userInfo.age}}<br>
+  주소 : {{userInfo.address}}<br>
+  <button (click)='logout()'>로그아웃</button>
+</div>

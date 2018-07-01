@@ -1,1 +1,39 @@
 <p>user 연결입니다.</p>
+<!--
+<button (click)="viewUserList()">유저리스트</button>
+
+<ul>
+    <ng-container *ngFor="let user of userList">
+        <li>이름 : {{user.name}}, 나이 : {{user.age}}</li>
+    </ng-container>
+</ul>-->
+
+<div class="container" [hidden]="isLogin">
+아이디 : <input [(ngModel)]="id">
+비밀번호 : <input [(ngModel)]="pwd">
+<button (click)="login()">로그인</button>
+</div>
+<br>
+<br>
+<br>
+<div class="container" [hidden]="!isLogin">
+이름 : <input [(ngModel)]="user.name">
+나이 : <input [(ngModel)]="user.age">
+비고 : <input [(ngModel)]="user.etc">
+<button (click)="insertUser()">유저 추가</button> <!-- onclick속성이 있어서 바인딩 되는것  -->
+<button (click)="viewUserList()">유저리스트</button> <!--  -->
+
+<select (change)="chSelect($event)">
+    <option value="user">유저리스트</option>
+    <option value="animal">동물리스트</option>
+    <option value="computer">컴퓨터리스트</option>
+</select>
+
+
+<ul>
+    <ng-container *ngFor="let user of userList">
+        <li>이름 : {{user.name}}, 나이 : {{user.age}}</li>
+    </ng-container>
+</ul>
+</div>
+

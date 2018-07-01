@@ -1,0 +1,12 @@
+<p>
+  promise works!
+</p>
+
+<button (click)="test()">비동기호출</button>
+<button (click)="synFunc()">동기호출</button>
+
+<ul>
+    <li *ngFor="let log of logList">
+      {{log.num}} = {{log.text}}
+    </li>
+</ul>
