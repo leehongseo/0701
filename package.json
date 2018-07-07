@@ -3,12 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start": "node server.js",
+    "start": "node server/server.js",
+    "hot":"supervisor server/server.js",
     "build": "ng build",
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
-    "ang":"ng serve --port 80", 
+    "ang": "ng serve --port 80",
     "postinstall": "ng build --aot=prod"
   },
   "private": true,
@@ -24,10 +25,12 @@
     "@angular/platform-browser": "^6.0.3",
     "@angular/platform-browser-dynamic": "^6.0.3",
     "@angular/router": "^6.0.3",
+    "bluebird": "^3.5.1",
     "body-parser": "^1.18.3",
     "bootstrap": "^4.1.1",
     "core-js": "^2.5.4",
     "express": "^4.16.3",
+    "mongoose": "^5.1.7",
     "path": "^0.12.7",
     "rxjs": "^6.0.0",
     "zone.js": "^0.8.26"

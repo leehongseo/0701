@@ -17,8 +17,8 @@ import { UserComponent } from './user/user.component';
 import {RouterModule} from '@angular/router';
 import {HttpClient, HttpClientModule} from '@angular/common/http'; 
 import { JoinComponent } from './join/join.component';
-import { PromiseComponent } from './promise/promise.component';;
-import { CompanyComponent } from './company/company.component' 
+import { PromiseComponent } from './promise/promise.component';
+import { CompanyComponent } from './company/company.component';
 
 
 

@@ -14,15 +14,16 @@ export class UserComponent implements OnInit {
   pwd:string;
   isLogin:boolean = false;
   constructor(private us:UserService) { 
-    console.log(us.getUser());
   }
   login():void{
-    this.us.isLogin(new User({id:this.id, pwd:this.pwd})).subscribe(
+    this.us.isLogin(new User({id:this.id, pwd:this.pwd}),'/login').subscribe(
       datas=>{
-        this.isLogin = datas.isLogin;
-        if(this.isLogin){
+        //this.isLogin = datas.login;
+        if(datas && datas.length!=0){
           alert('로그인에 성공하셨습니다.');
-          this.viewUserList();
+          //this.userList = datas.userList;
+          this.userList = datas;
+          this.isLogin = true;
         }else{
           alert('아이디 비번을 확인해주세요.');
         }
@@ -35,7 +36,7 @@ export class UserComponent implements OnInit {
   
   viewUserList():void{
     //this.userList = this.us.getUserList();
-    this.us.getUsers().subscribe(
+    this.us.getUsers(null,'').subscribe(
       datas=>{
         console.log(datas);
         this.userList =datas;
@@ -48,7 +49,6 @@ export class UserComponent implements OnInit {
   ngOnInit() {
   }
   insertUser():void{
-    this.us.setUser(this.user);
     this.user = new User(); // 이 한줄로 인해서 유저 추가시 다른 내용으로 추가가 가능하다.
   }
   changeEtc(event):void{
@@ -58,15 +58,6 @@ export class UserComponent implements OnInit {
   chSelect(event:Event):void{
     let obj:HTMLInputElement = <HTMLInputElement>event.target;
     alert(obj.value);
-    this.us.getList(obj.value).subscribe(
-      datas=>{
-        console.log(datas);
-        this.userList = datas[obj.value];
-      },
-      error=>{
-        console.log(error);
-      }
-    )
   }
 }
 

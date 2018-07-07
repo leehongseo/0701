@@ -1,19 +1,24 @@
 const express= require('express');
 const path = require('path');
+const conf = require('./conf/conf');
+const bodyParser = require('body-parser');
 const app = express();
+
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({extended:true}));
+app.use(conf.head);
+
+const uc=require('./controller/user_cont');
+//const umc=require('./controller/user_mongo_cont');
+app.use('/api/users',uc);
+//app.use('/api/musers',umc);
+app.get('/*',conf.html);
+
+
 app.use(express.static(__dirname + '/dist/ang-boot-app')); // use라면 메소드 상관없다
 // url , uri의 차이점 : url는 해당파일이 진짜 있는것 uri는 자원상 있는것
 // express와 앵귤러의 router는 거의 비슷한데 동작은 다르다.
 
-app.use(function(req,res,next){
-	res.header('X-Frame-Options','SAMEORIGIN');
-    res.header('Access-Control-Allow-Credentials', true);
-
-	res.header('Access-Control-Allow-Origin', '*');
-	res.header('Access-Control-Allow-Methods','GET,POST,PUT,DELETE');
-    res.header('Access-Control-Allow-Headers','X-Requested-With, X-HTTP-Method-Override, Content-Type, Accept');
-    next();
-});
 
 app.get('/api/companies',function(req,res,next){
     let companyList =[
